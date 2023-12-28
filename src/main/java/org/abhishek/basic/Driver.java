@@ -18,6 +18,11 @@ public class Driver {
         @Override
         public void run() {
             for(int i = 0 ; i < 10 ; i++) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println("Runner1 " +i);
             }
         }
@@ -38,6 +43,11 @@ public class Driver {
 
         Thread t3 = new Thread(() -> {
             for(int i = 0 ; i < 10 ; i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println("Runner3 " + i);
             }
         });
@@ -46,5 +56,15 @@ public class Driver {
         t1.start();
         t2.start();
         t3.start();
+
+        try {
+            // the current thread which is the main thread
+            // will wait for mentioned thread to finish the execution.
+            t2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("The main method is terminated ..... ");
+
     }
 }
