@@ -40,7 +40,7 @@ public class DaemonDriver {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread daemonThread = new Thread(new DaemonWorker());
         Thread normalThread = new Thread(new NormalWorker());
 
@@ -55,6 +55,14 @@ public class DaemonDriver {
         System.out.println(String.format("is Daemon %s -> %s", normalThread.getName(), normalThread.isDaemon()));
 
 
+        /**
+         * Thread.sleep causes the current thread to suspend execution for a specified period.
+         * So main thread will be put to sleep here by below statement.
+         * Also, main declares that it throws InterruptedException.
+         * This is an exception that sleep throws when another thread interrupts
+         * the current thread while sleep is active.
+         */
+        Thread.sleep(1000);
         System.out.println("Main thread finished execution...");
 
     }
