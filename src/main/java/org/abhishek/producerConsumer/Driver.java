@@ -15,6 +15,7 @@ public class Driver {
         //Holder of messages
         List<Integer> messages = new ArrayList<>();
 
+        //producer method
         public void produce() {
             synchronized (lock) {
                 try {
@@ -36,6 +37,7 @@ public class Driver {
             }
         }
 
+        //Consumer method
         public void consume() {
             synchronized (lock) {
                 try {
