@@ -1,4 +1,4 @@
-package org.abhishek.producerConsumer;
+package org.abhishek.producerConsumerIntrinsicLock;
 
 import java.util.ArrayList;
 import java.util.List;
