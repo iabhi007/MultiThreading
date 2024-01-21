@@ -3,6 +3,12 @@ package org.abhishek.atomic_variables;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * The java.util.concurrent.atomic package defines classes that support atomic operations on single variables.
+ * All classes have get and set methods that work like reads and writes on volatile variables.
+ * That is, a set has a happens-before relationship with any subsequent get on the same variable.
+ * The atomic compareAndSet method also has these memory consistency features,
+ * as do the simple atomic arithmetic methods that apply to integer atomic variables.
+ *
  *
  * https://www.baeldung.com/java-atomic-variables
  * https://docs.oracle.com/javase/tutorial/essential/concurrency/atomicvars.html
